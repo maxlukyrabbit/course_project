@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RD2mHuDpz5Bvvp6ngbaaer0wHJHHumBETQ0gtWY4wVnvGi4Wr1NXotj5gmK1P10MWfUE/qQ3a60vyfwjsy1TXA==",
+  "dgSpecHash": "m3osK7EhK/cFaDoGTKygr8T0bCJdJDPEyCx9YMexZF3x7HWeIlYtloIMqOLlAdwp2n27ROuNsNuYQx09sjHOiA==",
   "success": true,
-  "projectFilePath": "/Users/maksim/Documents/studies/3_course/course_project/course_project.csproj",
+  "projectFilePath": "/Users/maksim/Documents/studies/3_course/course_project/console/course_project.csproj",
   "expectedPackageFiles": [
     "/Users/maksim/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
   ],

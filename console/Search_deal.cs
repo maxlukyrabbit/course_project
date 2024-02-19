@@ -41,9 +41,8 @@ public class SearchDeal
                 idDeal = "Error executing request. Response code: " + response.StatusCode;
             }
         }
-        catch (Exception e)
+        catch
         {
-            Console.WriteLine(e.ToString());
             idDeal = "Error executing";
         }
         return idDeal;
