@@ -6,10 +6,14 @@ namespace YourNamespace
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine(DealManager.ChangeStage("43745", "C25:EXECUTING"));
-           // Console.WriteLine(SearchDeal.SearchDealMethod("1944102691"));
-           Console.WriteLine(DealManager.сhangeStage_test("43745"));
-            // CheckStage.Check_Stage("43745");
+
+            string id_deal = SearchDeal.SearchDealMethod("1944102691");
+            
+            string result = DealManager.сhangeStage_accepted_warehouse(id_deal);
+            
+            Console.WriteLine(result);
+           
+           
         }
     }
 }
