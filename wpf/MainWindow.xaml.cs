@@ -27,9 +27,25 @@ namespace course_project
 
         private void fix_Click(object sender, RoutedEventArgs e)
         {
-            string id_deal = SearchDeal.SearchDealMethod(text_panel.Text);
-            string result = DealManager.сhangeStage_fix(id_deal);
-            MessageBox.Show(result);
+            try
+            {
+                if(text_panel.Text == "")
+                {
+                    MessageBox.Show("Введите номер панели");
+                }
+
+                else
+                {
+                    string id_deal = SearchDeal.SearchDealMethod(text_panel.Text);
+                    string result = DealManager.сhangeStage_fix(id_deal);
+                    MessageBox.Show(result);
+                }
+                
+            }
+            catch
+            {
+                MessageBox.Show("Произошла ошибка");
+            }
         }
 
         private void warehouse_Click(object sender, RoutedEventArgs e)
@@ -41,9 +57,29 @@ namespace course_project
 
         private void check_Click(object sender, RoutedEventArgs e)
         {
-            string id_deal = SearchDeal.SearchDealMethod(text_panel.Text);
-            string result = DealManager.сhangeStage_test(id_deal);
-            MessageBox.Show(result);
+            
+
+            try
+            {
+                if (text_panel.Text == "")
+                {
+                    MessageBox.Show("Введите номер панели");
+                }
+
+                else
+                {
+                    string id_deal = SearchDeal.SearchDealMethod(text_panel.Text);
+                    string result = DealManager.сhangeStage_test(id_deal);
+                    MessageBox.Show(result);
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Произошла ошибка");
+            }
+
+
         }
 
         private void sending_Click(object sender, RoutedEventArgs e)
