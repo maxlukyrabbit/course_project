@@ -27,6 +27,7 @@ public static class DealManager
                 // Преобразование ответа в строку
                 string responseBody = response.Content.ReadAsStringAsync().Result;
                 result = "Успех";
+
             }
             else
             {
@@ -113,9 +114,7 @@ public static class DealManager
         string stage = CheckStage.Check_Stage(dealId);
         if (stage.Length <= 30)
         {
-
             result = ChangeStage_universal(dealId, "C25:FINAL_INVOICE");
-
         }
         else
         {

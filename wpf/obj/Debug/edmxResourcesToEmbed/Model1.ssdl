@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище course_projectModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="access">
+    <Key>
+      <PropertyRef Name="id_level" />
+    </Key>
+    <Property Name="id_level" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_level" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="logs">
+    <Key>
+      <PropertyRef Name="logs_id" />
+    </Key>
+    <Property Name="logs_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="initial_stage" Type="int" Nullable="false" />
+    <Property Name="final_stage" Type="int" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stage_deal">
+    <Key>
+      <PropertyRef Name="id_deal" />
+    </Key>
+    <Property Name="id_deal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_stage" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="nvarchar" MaxLength="100" />
+    <Property Name="name" Type="nvarchar" MaxLength="75" />
+    <Property Name="patronymic" Type="nvarchar" MaxLength="100" />
+    <Property Name="access_level" Type="int" />
+    <Property Name="token" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_logs_stage_deal">
+    <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
+    <End Role="logs" Type="Self.logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stage_deal">
+        <PropertyRef Name="id_deal" />
+      </Principal>
+      <Dependent Role="logs">
+        <PropertyRef Name="initial_stage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_logs_stage_deal1">
+    <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
+    <End Role="logs" Type="Self.logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stage_deal">
+        <PropertyRef Name="id_deal" />
+      </Principal>
+      <Dependent Role="logs">
+        <PropertyRef Name="final_stage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_logs_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="logs" Type="Self.logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="logs">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_access">
+    <End Role="access" Type="Self.access" Multiplicity="0..1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="access">
+        <PropertyRef Name="id_level" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="access_level" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище course_projectModelContainer">
+    <EntitySet Name="access" EntityType="Self.access" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="logs" EntityType="Self.logs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stage_deal" EntityType="Self.stage_deal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_logs_stage_deal" Association="Self.FK_logs_stage_deal">
+      <End Role="stage_deal" EntitySet="stage_deal" />
+      <End Role="logs" EntitySet="logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_logs_stage_deal1" Association="Self.FK_logs_stage_deal1">
+      <End Role="stage_deal" EntitySet="stage_deal" />
+      <End Role="logs" EntitySet="logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_logs_user" Association="Self.FK_logs_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="logs" EntitySet="logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_access" Association="Self.FK_user_access">
+      <End Role="access" EntitySet="access" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

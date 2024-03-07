@@ -29,3 +29,14 @@ E:\Курсач\course_project\wpf\obj\Debug\course_project.pdb
 E:\Курсач\course_project\wpf\bin\Debug\Newtonsoft.Json.dll
 E:\Курсач\course_project\wpf\bin\Debug\Newtonsoft.Json.xml
 E:\Курсач\course_project\wpf\obj\Debug\course_p.7B98CD29.Up2Date
+E:\Курсач\course_project\wpf\obj\Debug\Window1.g.cs
+E:\Курсач\course_project\wpf\obj\Debug\course_project_MarkupCompile.lref
+E:\Курсач\course_project\wpf\obj\Debug\Window1.baml
+E:\Курсач\course_project\wpf\obj\Debug\Window2.g.cs
+E:\Курсач\course_project\wpf\obj\Debug\Window2.baml
+E:\Курсач\course_project\wpf\bin\Debug\EntityFramework.dll
+E:\Курсач\course_project\wpf\bin\Debug\EntityFramework.SqlServer.dll
+E:\Курсач\course_project\wpf\bin\Debug\EntityFramework.xml
+E:\Курсач\course_project\wpf\bin\Debug\EntityFramework.SqlServer.xml
+E:\Курсач\course_project\wpf\bin\Debug\ru\EntityFramework.resources.dll
+E:\Курсач\course_project\wpf\obj\Debug\course_project_Content.g.cs

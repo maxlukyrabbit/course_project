@@ -89,5 +89,12 @@ namespace course_project
             string result = DealManager.сhangeStage_ready_ship(id_deal);
             MessageBox.Show(result);
         }
+
+        private void log_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 window = new Window1();
+            window.Show();
+            this.Close();
+        }
     }
 }
