@@ -16,11 +16,13 @@
           <Key>
             <PropertyRef Name="logs_id" />
           </Key>
-          <Property Name="logs_id" Type="int" Nullable="false" />
+          <Property Name="logs_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_panel" Type="nvarchar" MaxLength="10" />
           <Property Name="user_id" Type="int" Nullable="false" />
           <Property Name="initial_stage" Type="int" Nullable="false" />
           <Property Name="final_stage" Type="int" Nullable="false" />
           <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="result" Type="bit" />
         </EntityType>
         <EntityType Name="stage_deal">
           <Key>
@@ -49,6 +51,7 @@
           <Property Name="patronymic" Type="nvarchar" MaxLength="100" />
           <Property Name="access_level" Type="int" />
           <Property Name="token" Type="nvarchar" MaxLength="100" />
+          <Property Name="post" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_logs_stage_deal">
           <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
@@ -138,11 +141,13 @@
           <Key>
             <PropertyRef Name="logs_id" />
           </Key>
-          <Property Name="logs_id" Type="Int32" Nullable="false" />
+          <Property Name="logs_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_panel" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="initial_stage" Type="Int32" Nullable="false" />
           <Property Name="final_stage" Type="Int32" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="result" Type="Boolean" />
           <NavigationProperty Name="stage_deal" Relationship="Self.FK_logs_stage_deal" FromRole="logs" ToRole="stage_deal" />
           <NavigationProperty Name="stage_deal1" Relationship="Self.FK_logs_stage_deal1" FromRole="logs" ToRole="stage_deal" />
           <NavigationProperty Name="user" Relationship="Self.FK_logs_user" FromRole="logs" ToRole="user" />
@@ -176,6 +181,7 @@
           <Property Name="patronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="access_level" Type="Int32" />
           <Property Name="token" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="access" Relationship="Self.FK_user_access" FromRole="user" ToRole="access" />
           <NavigationProperty Name="logs" Relationship="Self.FK_logs_user" FromRole="user" ToRole="logs" />
         </EntityType>
@@ -227,7 +233,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="course_projectEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="course_projectEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="access" EntityType="Self.access" />
           <EntitySet Name="logs" EntityType="Self.logs" />
           <EntitySet Name="stage_deal" EntityType="Self.stage_deal" />
@@ -255,7 +261,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище course_projectModelContainer" CdmEntityContainer="course_projectEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище course_projectModelContainer" CdmEntityContainer="course_projectEntities2">
           <EntitySetMapping Name="access">
             <EntityTypeMapping TypeName="course_projectModel.access">
               <MappingFragment StoreEntitySet="access">
@@ -268,10 +274,12 @@
             <EntityTypeMapping TypeName="course_projectModel.logs">
               <MappingFragment StoreEntitySet="logs">
                 <ScalarProperty Name="logs_id" ColumnName="logs_id" />
+                <ScalarProperty Name="id_panel" ColumnName="id_panel" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="initial_stage" ColumnName="initial_stage" />
                 <ScalarProperty Name="final_stage" ColumnName="final_stage" />
                 <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="result" ColumnName="result" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -303,6 +311,7 @@
                 <ScalarProperty Name="patronymic" ColumnName="patronymic" />
                 <ScalarProperty Name="access_level" ColumnName="access_level" />
                 <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="post" ColumnName="post" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

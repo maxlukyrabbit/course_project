@@ -20,7 +20,7 @@ namespace course_project
     public partial class Window2 : Window
     {
         public static int id_user = 0;
-        course_projectEntities1 db = new course_projectEntities1();
+        course_projectEntities2 db = new course_projectEntities2();
         public Window2()
         {
             InitializeComponent();

@@ -26,6 +26,7 @@ namespace course_project
         public string patronymic { get; set; }
         public Nullable<int> access_level { get; set; }
         public string token { get; set; }
+        public string post { get; set; }
     
         public virtual access access { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

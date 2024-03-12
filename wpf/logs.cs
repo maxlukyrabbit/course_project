@@ -15,10 +15,12 @@ namespace course_project
     public partial class logs
     {
         public int logs_id { get; set; }
+        public string id_panel { get; set; }
         public int user_id { get; set; }
         public int initial_stage { get; set; }
         public int final_stage { get; set; }
         public System.DateTime date { get; set; }
+        public Nullable<bool> result { get; set; }
     
         public virtual stage_deal stage_deal { get; set; }
         public virtual stage_deal stage_deal1 { get; set; }

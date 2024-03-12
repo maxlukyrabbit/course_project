@@ -1,10 +1,11 @@
-﻿using System;
+﻿using course_project;
+using System;
 using System.Net.Http;
 using System.Xml.XPath;
 
 public static class DealManager
 {
-    private static string ChangeStage_universal(string dealId, string stageId)
+    private static string ChangeStage_universal(string dealId, string stageId, string stage)
     {
         string result = "";
 
@@ -27,16 +28,20 @@ public static class DealManager
                 // Преобразование ответа в строку
                 string responseBody = response.Content.ReadAsStringAsync().Result;
                 result = "Успех";
+                logs_save.save(5, MainWindow.id_panel, stage, stageId, true);
+
 
             }
             else
             {
                 result = "Запрос отправлен, но сообщеня об успехе нет";
+                logs_save.save(5, MainWindow.id_panel, stage, stageId, false);
             }
         }
         catch
         {
             result = "Ошибка";
+            logs_save.save(5, MainWindow.id_panel, stage, stageId, false);
         }
 
         return result;
@@ -50,11 +55,12 @@ public static class DealManager
         {
             if (stage == "C25:NEW" || stage == "C25:PREPARATION" || stage == "C25:PREPAYMENT_INVOIC")
             {
-                result = ChangeStage_universal(dealId, "C25:EXECUTING");
+                result = ChangeStage_universal(dealId, "C25:EXECUTING", stage);
             }
             else
             {
                 result = $"Панель находится в неподходящей стадии:{stage}";
+                logs_save.save(5, MainWindow.id_panel, stage, "C25:EXECUTING", false);
             }
         }
         else
@@ -72,11 +78,12 @@ public static class DealManager
         {
             if (stage == "C25:1" || stage == "C25:2" || stage == "C25:PREPAYMENT_INVOIC" || stage == "C25:7" || stage == "C25:UC_DMZGI5" || stage == "C25:EXECUTING")
             {
-                result = ChangeStage_universal(dealId, "C25:2");
+                result = ChangeStage_universal(dealId, "C25:2", stage);
             }
             else
             {
                 result = $"Панель находится в неподходящей стадии:{stage}";
+                logs_save.save(5, MainWindow.id_panel, stage, "C25:2", false);
             }
         }
         else
@@ -94,11 +101,12 @@ public static class DealManager
         {
             if (stage != "C25:LOSE" && stage != "C25:APOLOGY" && stage != "C25:WON")
             {
-                result = ChangeStage_universal(dealId, "C25:7");
+                result = ChangeStage_universal(dealId, "C25:7", stage);
             }
             else
             {
                 result = $"Панель находится в неподходящей стадии:{stage}";
+                logs_save.save(5, MainWindow.id_panel, stage, "C25:7", false);
             }
         }
         else
@@ -114,11 +122,12 @@ public static class DealManager
         string stage = CheckStage.Check_Stage(dealId);
         if (stage.Length <= 30)
         {
-            result = ChangeStage_universal(dealId, "C25:FINAL_INVOICE");
+            result = ChangeStage_universal(dealId, "C25:FINAL_INVOICE", stage);
         }
         else
         {
-            result = stage;
+            result = $"Панель находится в неподходящей стадии:{stage}";
+            logs_save.save(5, MainWindow.id_panel, stage, "C25:FINAL_INVOICE", false);
         }
         return result;
     }
