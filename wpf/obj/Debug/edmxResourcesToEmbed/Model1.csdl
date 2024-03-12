@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="course_projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="access">
+    <Key>
+      <PropertyRef Name="id_level" />
+    </Key>
+    <Property Name="id_level" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name_level" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_user_access" FromRole="access" ToRole="user" />
+  </EntityType>
+  <EntityType Name="logs">
+    <Key>
+      <PropertyRef Name="logs_id" />
+    </Key>
+    <Property Name="logs_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="initial_stage" Type="Int32" Nullable="false" />
+    <Property Name="final_stage" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="stage_deal" Relationship="Self.FK_logs_stage_deal" FromRole="logs" ToRole="stage_deal" />
+    <NavigationProperty Name="stage_deal1" Relationship="Self.FK_logs_stage_deal1" FromRole="logs" ToRole="stage_deal" />
+    <NavigationProperty Name="user" Relationship="Self.FK_logs_user" FromRole="logs" ToRole="user" />
+  </EntityType>
+  <EntityType Name="stage_deal">
+    <Key>
+      <PropertyRef Name="id_deal" />
+    </Key>
+    <Property Name="id_deal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name_stage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="logs" Relationship="Self.FK_logs_stage_deal" FromRole="stage_deal" ToRole="logs" />
+    <NavigationProperty Name="logs1" Relationship="Self.FK_logs_stage_deal1" FromRole="stage_deal" ToRole="logs" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="patronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="access_level" Type="Int32" />
+    <Property Name="token" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="access" Relationship="Self.FK_user_access" FromRole="user" ToRole="access" />
+    <NavigationProperty Name="logs" Relationship="Self.FK_logs_user" FromRole="user" ToRole="logs" />
+  </EntityType>
+  <Association Name="FK_user_access">
+    <End Role="access" Type="Self.access" Multiplicity="0..1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="access">
+        <PropertyRef Name="id_level" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="access_level" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_logs_stage_deal">
+    <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
+    <End Role="logs" Type="Self.logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stage_deal">
+        <PropertyRef Name="id_deal" />
+      </Principal>
+      <Dependent Role="logs">
+        <PropertyRef Name="initial_stage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_logs_stage_deal1">
+    <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
+    <End Role="logs" Type="Self.logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stage_deal">
+        <PropertyRef Name="id_deal" />
+      </Principal>
+      <Dependent Role="logs">
+        <PropertyRef Name="final_stage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_logs_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="logs" Type="Self.logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="logs">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="course_projectEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="access" EntityType="Self.access" />
+    <EntitySet Name="logs" EntityType="Self.logs" />
+    <EntitySet Name="stage_deal" EntityType="Self.stage_deal" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <AssociationSet Name="FK_user_access" Association="Self.FK_user_access">
+      <End Role="access" EntitySet="access" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_logs_stage_deal" Association="Self.FK_logs_stage_deal">
+      <End Role="stage_deal" EntitySet="stage_deal" />
+      <End Role="logs" EntitySet="logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_logs_stage_deal1" Association="Self.FK_logs_stage_deal1">
+      <End Role="stage_deal" EntitySet="stage_deal" />
+      <End Role="logs" EntitySet="logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_logs_user" Association="Self.FK_logs_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="logs" EntitySet="logs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

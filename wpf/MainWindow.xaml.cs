@@ -20,6 +20,7 @@ namespace course_project
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string id_panel;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,8 +37,10 @@ namespace course_project
 
                 else
                 {
+                    id_panel = text_panel.Text;
                     string id_deal = SearchDeal.SearchDealMethod(text_panel.Text);
                     string result = DealManager.сhangeStage_fix(id_deal);
+
                     MessageBox.Show(result);
                 }
                 
@@ -50,9 +53,31 @@ namespace course_project
 
         private void warehouse_Click(object sender, RoutedEventArgs e)
         {
-            string id_deal = SearchDeal.SearchDealMethod(text_panel.Text);
-            string result = DealManager.сhangeStage_accepted_warehouse(id_deal);
-            MessageBox.Show(result);
+            
+
+
+            try
+            {
+                if (text_panel.Text == "")
+                {
+                    MessageBox.Show("Введите номер панели");
+                }
+
+                else
+                {
+                    id_panel = text_panel.Text;
+                    string id_deal = SearchDeal.SearchDealMethod(text_panel.Text);
+                    string result = DealManager.сhangeStage_accepted_warehouse(id_deal);
+                    MessageBox.Show(result);
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Произошла ошибка");
+            }
+
+
         }
 
         private void check_Click(object sender, RoutedEventArgs e)
@@ -68,6 +93,7 @@ namespace course_project
 
                 else
                 {
+                    id_panel = text_panel.Text;
                     string id_deal = SearchDeal.SearchDealMethod(text_panel.Text);
                     string result = DealManager.сhangeStage_test(id_deal);
                     MessageBox.Show(result);
@@ -85,9 +111,38 @@ namespace course_project
         private void sending_Click(object sender, RoutedEventArgs e)
         {
             
-            string id_deal = SearchDeal.SearchDealMethod(text_panel.Text);
-            string result = DealManager.сhangeStage_ready_ship(id_deal);
-            MessageBox.Show(result);
+
+
+            try
+            {
+                if (text_panel.Text == "")
+                {
+                    MessageBox.Show("Введите номер панели");
+                }
+
+                else
+                {
+                    id_panel = text_panel.Text;
+                    string id_deal = SearchDeal.SearchDealMethod(text_panel.Text);
+                    string result = DealManager.сhangeStage_ready_ship(id_deal);
+                    MessageBox.Show(result);
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Произошла ошибка");
+            }
+
+
+
+        }
+
+        private void log_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 window = new Window1();
+            window.Show();
+            this.Close();
         }
     }
 }
