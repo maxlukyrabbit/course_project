@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/maksim/Documents/studies/3_course/course_project/console/course_project.csproj",
+      "projectUniqueName": "/Users/maksim/Documents/studies/course_project/console/course_project.csproj",
       "projectName": "course_project",
-      "projectPath": "/Users/maksim/Documents/studies/3_course/course_project/console/course_project.csproj",
+      "projectPath": "/Users/maksim/Documents/studies/course_project/console/course_project.csproj",
       "packagesPath": "/Users/maksim/.nuget/packages/",
-      "outputPath": "/Users/maksim/Documents/studies/3_course/course_project/console/obj/",
+      "outputPath": "/Users/maksim/Documents/studies/course_project/console/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/maksim/.nuget/NuGet/NuGet.Config"
