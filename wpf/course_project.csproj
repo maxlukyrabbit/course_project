@@ -70,6 +70,8 @@
     <Compile Include="access.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="AESEncryption.cs" />
+    <Compile Include="file_write_and_read.cs" />
     <Compile Include="logs.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

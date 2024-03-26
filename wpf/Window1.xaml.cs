@@ -19,9 +19,11 @@ namespace course_project
     /// </summary>
     public partial class Window1 : Window
     {
+        course_projectEntities3 db = new course_projectEntities3();
         public Window1()
         {
             InitializeComponent();
+            logsG.ItemsSource = db.logs.ToList();
         }
 
         private void comeback_Click(object sender, RoutedEventArgs e)

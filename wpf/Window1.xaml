@@ -12,7 +12,18 @@
             <RowDefinition Height="350*"/>
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <DataGrid Grid.Row="0" x:Name="logsG" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер панели" Binding="{Binding id_panel}"/>
+                <DataGridTextColumn Header="Пользователь" Binding="{Binding user.firstname}"/>
+                <DataGridTextColumn Header="Начальная стадия" Binding="{Binding initial_stage}"/>
+                <DataGridTextColumn Header="Конечная стадия" Binding="{Binding final_stage}"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding date}"/>
+                <DataGridTextColumn Header="Результат" Binding="{Binding result}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        
         <Button x:Name="comeback" FontSize="40" Content="Назад" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch"  Grid.Row="1" Click="comeback_Click"  />
 
     </Grid>

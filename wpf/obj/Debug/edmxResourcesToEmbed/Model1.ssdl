@@ -11,18 +11,21 @@
     <Key>
       <PropertyRef Name="logs_id" />
     </Key>
-    <Property Name="logs_id" Type="int" Nullable="false" />
+    <Property Name="logs_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_panel" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="user_id" Type="int" Nullable="false" />
-    <Property Name="initial_stage" Type="int" Nullable="false" />
-    <Property Name="final_stage" Type="int" Nullable="false" />
+    <Property Name="initial_stage" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="final_stage" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="result" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="stage_deal">
     <Key>
       <PropertyRef Name="id_deal" />
     </Key>
-    <Property Name="id_deal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_deal" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="name_stage" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="name_stade_ru" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -39,36 +42,13 @@
       <PropertyRef Name="id_user" />
     </Key>
     <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="firstname" Type="nvarchar" MaxLength="100" />
-    <Property Name="name" Type="nvarchar" MaxLength="75" />
-    <Property Name="patronymic" Type="nvarchar" MaxLength="100" />
-    <Property Name="access_level" Type="int" />
-    <Property Name="token" Type="nvarchar" MaxLength="100" />
+    <Property Name="firstname" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="patronymic" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="access_level" Type="int" Nullable="false" />
+    <Property Name="token" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="post" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Association Name="FK_logs_stage_deal">
-    <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
-    <End Role="logs" Type="Self.logs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="stage_deal">
-        <PropertyRef Name="id_deal" />
-      </Principal>
-      <Dependent Role="logs">
-        <PropertyRef Name="initial_stage" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_logs_stage_deal1">
-    <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
-    <End Role="logs" Type="Self.logs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="stage_deal">
-        <PropertyRef Name="id_deal" />
-      </Principal>
-      <Dependent Role="logs">
-        <PropertyRef Name="final_stage" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_logs_user">
     <End Role="user" Type="Self.user" Multiplicity="1" />
     <End Role="logs" Type="Self.logs" Multiplicity="*" />
@@ -82,7 +62,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_user_access">
-    <End Role="access" Type="Self.access" Multiplicity="0..1" />
+    <End Role="access" Type="Self.access" Multiplicity="1" />
     <End Role="user" Type="Self.user" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="access">
@@ -99,14 +79,6 @@
     <EntitySet Name="stage_deal" EntityType="Self.stage_deal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_logs_stage_deal" Association="Self.FK_logs_stage_deal">
-      <End Role="stage_deal" EntitySet="stage_deal" />
-      <End Role="logs" EntitySet="logs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_logs_stage_deal1" Association="Self.FK_logs_stage_deal1">
-      <End Role="stage_deal" EntitySet="stage_deal" />
-      <End Role="logs" EntitySet="logs" />
-    </AssociationSet>
     <AssociationSet Name="FK_logs_user" Association="Self.FK_logs_user">
       <End Role="user" EntitySet="user" />
       <End Role="logs" EntitySet="logs" />

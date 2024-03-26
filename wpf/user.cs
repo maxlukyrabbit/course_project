@@ -24,7 +24,7 @@ namespace course_project
         public string firstname { get; set; }
         public string name { get; set; }
         public string patronymic { get; set; }
-        public Nullable<int> access_level { get; set; }
+        public int access_level { get; set; }
         public string token { get; set; }
         public string post { get; set; }
     

@@ -13,10 +13,10 @@ namespace course_project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class course_projectEntities2 : DbContext
+    public partial class course_projectEntities3 : DbContext
     {
-        public course_projectEntities2()
-            : base("name=course_projectEntities2")
+        public course_projectEntities3()
+            : base("name=course_projectEntities3")
         {
         }
     
