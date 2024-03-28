@@ -20,7 +20,7 @@ namespace course_project
     public partial class Window2 : Window
     {
         public static int id_user = 0;
-        course_projectEntities3 db = new course_projectEntities3();
+        course_projectEntities4 db = new course_projectEntities4();
         public Window2()
         {   
             if (access_verification() == true)

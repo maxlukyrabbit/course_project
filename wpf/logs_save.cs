@@ -8,9 +8,9 @@ namespace course_project
 {
     public class logs_save
     { 
-        public static void save(int user_id, string id_panel, string first_stage, string final_stage, bool result)
+        public static void save(int user_id, string id_panel, string first_stage, string final_stage, bool result, string reason)
         {
-            course_projectEntities3 db = new course_projectEntities3();
+            course_projectEntities4 db = new course_projectEntities4();
 
             logs logs = new logs();
             logs.user_id = user_id;
@@ -19,6 +19,7 @@ namespace course_project
             logs.initial_stage = first_stage;
             logs.final_stage = final_stage;
             logs.date = DateTime.Now;
+            logs.reason = reason;
 
 
             db.logs.Add(logs);

@@ -18,6 +18,7 @@
     <Property Name="final_stage" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="date" Type="datetime" Nullable="false" />
     <Property Name="result" Type="bit" Nullable="false" />
+    <Property Name="reason" Type="nchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="stage_deal">
     <Key>
@@ -25,7 +26,6 @@
     </Key>
     <Property Name="id_deal" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="name_stage" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="name_stade_ru" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -49,6 +49,30 @@
     <Property Name="token" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="post" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <Association Name="FK_logs_stage_deal">
+    <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
+    <End Role="logs" Type="Self.logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stage_deal">
+        <PropertyRef Name="id_deal" />
+      </Principal>
+      <Dependent Role="logs">
+        <PropertyRef Name="initial_stage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_logs_stage_deal1">
+    <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
+    <End Role="logs" Type="Self.logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stage_deal">
+        <PropertyRef Name="id_deal" />
+      </Principal>
+      <Dependent Role="logs">
+        <PropertyRef Name="final_stage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_logs_user">
     <End Role="user" Type="Self.user" Multiplicity="1" />
     <End Role="logs" Type="Self.logs" Multiplicity="*" />
@@ -79,6 +103,14 @@
     <EntitySet Name="stage_deal" EntityType="Self.stage_deal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_logs_stage_deal" Association="Self.FK_logs_stage_deal">
+      <End Role="stage_deal" EntitySet="stage_deal" />
+      <End Role="logs" EntitySet="logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_logs_stage_deal1" Association="Self.FK_logs_stage_deal1">
+      <End Role="stage_deal" EntitySet="stage_deal" />
+      <End Role="logs" EntitySet="logs" />
+    </AssociationSet>
     <AssociationSet Name="FK_logs_user" Association="Self.FK_logs_user">
       <End Role="user" EntitySet="user" />
       <End Role="logs" EntitySet="logs" />

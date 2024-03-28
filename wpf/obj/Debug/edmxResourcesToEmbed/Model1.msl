@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище course_projectModelContainer" CdmEntityContainer="course_projectEntities3">
+  <EntityContainerMapping StorageEntityContainer="Хранилище course_projectModelContainer" CdmEntityContainer="course_projectEntities4">
     <EntitySetMapping Name="access">
       <EntityTypeMapping TypeName="course_projectModel.access">
         <MappingFragment StoreEntitySet="access">
@@ -12,6 +12,7 @@
     <EntitySetMapping Name="logs">
       <EntityTypeMapping TypeName="course_projectModel.logs">
         <MappingFragment StoreEntitySet="logs">
+          <ScalarProperty Name="reason" ColumnName="reason" />
           <ScalarProperty Name="logs_id" ColumnName="logs_id" />
           <ScalarProperty Name="id_panel" ColumnName="id_panel" />
           <ScalarProperty Name="user_id" ColumnName="user_id" />
@@ -27,7 +28,6 @@
         <MappingFragment StoreEntitySet="stage_deal">
           <ScalarProperty Name="id_deal" ColumnName="id_deal" />
           <ScalarProperty Name="name_stage" ColumnName="name_stage" />
-          <ScalarProperty Name="name_stade_ru" ColumnName="name_stade_ru" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

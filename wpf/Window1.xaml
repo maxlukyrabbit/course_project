@@ -5,26 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:course_project"
         mc:Ignorable="d"
-        Title="Логи" Height="450" MinHeight="450" Width="400" MinWidth="400" MaxWidth="800" MaxHeight="900"
+        Title="Логи" Height="450" Width="845" MinHeight="450"  MinWidth="845"
         Topmost="True">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="350*"/>
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="150*"/>
+        </Grid.ColumnDefinitions>
         <DataGrid Grid.Row="0" x:Name="logsG" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер панели" Binding="{Binding id_panel}"/>
                 <DataGridTextColumn Header="Пользователь" Binding="{Binding user.firstname}"/>
-                <DataGridTextColumn Header="Начальная стадия" Binding="{Binding initial_stage}"/>
-                <DataGridTextColumn Header="Конечная стадия" Binding="{Binding final_stage}"/>
+                <DataGridTextColumn Header="Начальная стадия" Binding="{Binding stage_deal.name_stage}"/>
+                <DataGridTextColumn Header="Конечная стадия" Binding="{Binding stage_deal1.name_stage}"/>
                 <DataGridTextColumn Header="Дата" Binding="{Binding date}"/>
                 <DataGridTextColumn Header="Результат" Binding="{Binding result}"/>
+                <DataGridTextColumn Header="Причина" Binding="{Binding reason}"/>
             </DataGrid.Columns>
         </DataGrid>
-        
-        
-        <Button x:Name="comeback" FontSize="40" Content="Назад" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch"  Grid.Row="1" Click="comeback_Click"  />
+
+        <Button x:Name="comeback" FontSize="40" Content="Назад" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.Row="1" Click="comeback_Click"  />
+        <Label Grid.Column="1" Content="Поиск по сотруднику" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox Grid.Column="1" x:Name="find_name" HorizontalAlignment="Left" Margin="165,14,0,0" VerticalAlignment="Top" Width="120"/>
+        <RadioButton Grid.Column="1" GroupName="first" Content="Раньше даты" HorizontalAlignment="Left" Margin="165,74,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
+        <RadioButton Grid.Column="1" GroupName="first" Content="Совпадает" HorizontalAlignment="Left" Margin="165,101,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
+        <RadioButton Grid.Column="1" GroupName="first" Content="Позднее" HorizontalAlignment="Left" Margin="165,128,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
+        <DatePicker Grid.Column="1"  x:Name="date" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Height="42" Width="149"/>
+        <Label Grid.Column="1" Content="Поиск по начальной стадии" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top"/>
+        <ComboBox Grid.Column="1" x:Name="stage" HorizontalAlignment="Left" Margin="179,193,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Grid.Column="1" x:Name="show" Content="Показать" HorizontalAlignment="Center" Margin="0,265,0,0" VerticalAlignment="Top" Width="297" Height="28" Click="show_Click"/>
+        <Button Grid.Column="1" x:Name="rest" Content="Сбросить" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" Width="297" Height="28"/>
+        <Label Grid.Column="1" Content="Поиск по конечной стадии" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top"/>
+        <ComboBox Grid.Column="1" x:Name="stage_fin" HorizontalAlignment="Left" Margin="179,226,0,0" VerticalAlignment="Top" Width="120"/>
+        <RadioButton Grid.Column="1" GroupName="second" Content="Успех" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="20" Width="120"/>
+        <RadioButton Grid.Column="1" GroupName="second" Content="Ошибка" HorizontalAlignment="Left" Margin="187,0,0,0" VerticalAlignment="Center" Height="20" Width="120"/>
 
     </Grid>
 </Window>

@@ -3,31 +3,39 @@
   "WorkspaceRootPath": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|e:\\\u043A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\check_stage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|solutionrelative:check_stage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|e:\\\u043A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\search_deal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|solutionrelative:search_deal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|e:\\\u043A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|solutionrelative:window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|e:\\\u043A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\window1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\window1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|solutionrelative:window1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|e:\\\u043A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|solutionrelative:logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|e:\\\u043A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\window2.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\window2.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|solutionrelative:window2.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|e:\\\u043A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\logs_save.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\logs_save.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|solutionrelative:logs_save.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|e:\\\u043A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|solutionrelative:mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|e:\\\u043A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\change_stage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\change_stage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{460F9FF0-8F98-43E6-920B-7193202DA874}|course_project.csproj|solutionrelative:change_stage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -38,11 +46,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "check_stage.cs",
+              "DocumentMoniker": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\check_stage.cs",
+              "RelativeDocumentMoniker": "check_stage.cs",
+              "ToolTip": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\check_stage.cs",
+              "RelativeToolTip": "check_stage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAByAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T15:43:48.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Search_deal.cs",
+              "DocumentMoniker": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\Search_deal.cs",
+              "RelativeDocumentMoniker": "Search_deal.cs",
+              "ToolTip": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\Search_deal.cs",
+              "RelativeToolTip": "Search_deal.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAACNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T15:41:39.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Window1.xaml",
               "DocumentMoniker": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\Window1.xaml",
               "RelativeDocumentMoniker": "Window1.xaml",
@@ -54,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Window1.xaml.cs",
               "DocumentMoniker": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\Window1.xaml.cs",
               "RelativeDocumentMoniker": "Window1.xaml.cs",
@@ -62,12 +100,11 @@
               "RelativeToolTip": "Window1.xaml.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAuwBYAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T17:41:01.504Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-26T17:41:01.504Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "logs.cs",
               "DocumentMoniker": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\logs.cs",
               "RelativeDocumentMoniker": "logs.cs",
@@ -75,12 +112,11 @@
               "RelativeToolTip": "logs.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABYAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T17:39:57.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-26T17:39:57.923Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Change_Stage.cs",
               "DocumentMoniker": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\Change_Stage.cs",
               "RelativeDocumentMoniker": "Change_Stage.cs",
@@ -88,12 +124,11 @@
               "RelativeToolTip": "Change_Stage.cs",
               "ViewState": "AQIAAFYAAAAAAAAAAAAwwIEAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T17:09:57.817Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-26T17:09:57.817Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
@@ -101,12 +136,11 @@
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T17:07:30.42Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-26T17:07:30.42Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Window2.xaml.cs",
               "DocumentMoniker": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\Window2.xaml.cs",
               "RelativeDocumentMoniker": "Window2.xaml.cs",
@@ -114,12 +148,11 @@
               "RelativeToolTip": "Window2.xaml.cs",
               "ViewState": "AQIAADAAAAAAAAAAAAAowBoAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T17:07:15.724Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-26T17:07:15.724Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "logs_save.cs",
               "DocumentMoniker": "E:\\\u041A\u0443\u0440\u0441\u0430\u0447\\course_project\\wpf\\logs_save.cs",
               "RelativeDocumentMoniker": "logs_save.cs",
@@ -127,8 +160,7 @@
               "RelativeToolTip": "logs_save.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T17:07:04.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-26T17:07:04.774Z"
             }
           ]
         }

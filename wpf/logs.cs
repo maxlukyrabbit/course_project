@@ -21,7 +21,10 @@ namespace course_project
         public string final_stage { get; set; }
         public System.DateTime date { get; set; }
         public bool result { get; set; }
+        public string reason { get; set; }
     
+        public virtual stage_deal stage_deal { get; set; }
+        public virtual stage_deal stage_deal1 { get; set; }
         public virtual user user { get; set; }
     }
 }

@@ -23,6 +23,7 @@
           <Property Name="final_stage" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="date" Type="datetime" Nullable="false" />
           <Property Name="result" Type="bit" Nullable="false" />
+          <Property Name="reason" Type="nchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="stage_deal">
           <Key>
@@ -30,7 +31,6 @@
           </Key>
           <Property Name="id_deal" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="name_stage" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="name_stade_ru" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -54,6 +54,30 @@
           <Property Name="token" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="post" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_logs_stage_deal">
+          <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
+          <End Role="logs" Type="Self.logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stage_deal">
+              <PropertyRef Name="id_deal" />
+            </Principal>
+            <Dependent Role="logs">
+              <PropertyRef Name="initial_stage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_logs_stage_deal1">
+          <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
+          <End Role="logs" Type="Self.logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stage_deal">
+              <PropertyRef Name="id_deal" />
+            </Principal>
+            <Dependent Role="logs">
+              <PropertyRef Name="final_stage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_logs_user">
           <End Role="user" Type="Self.user" Multiplicity="1" />
           <End Role="logs" Type="Self.logs" Multiplicity="*" />
@@ -84,6 +108,14 @@
           <EntitySet Name="stage_deal" EntityType="Self.stage_deal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_logs_stage_deal" Association="Self.FK_logs_stage_deal">
+            <End Role="stage_deal" EntitySet="stage_deal" />
+            <End Role="logs" EntitySet="logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_logs_stage_deal1" Association="Self.FK_logs_stage_deal1">
+            <End Role="stage_deal" EntitySet="stage_deal" />
+            <End Role="logs" EntitySet="logs" />
+          </AssociationSet>
           <AssociationSet Name="FK_logs_user" Association="Self.FK_logs_user">
             <End Role="user" EntitySet="user" />
             <End Role="logs" EntitySet="logs" />
@@ -116,7 +148,10 @@
           <Property Name="final_stage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="result" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="stage_deal" Relationship="Self.FK_logs_stage_deal" FromRole="logs" ToRole="stage_deal" />
+          <NavigationProperty Name="stage_deal1" Relationship="Self.FK_logs_stage_deal1" FromRole="logs" ToRole="stage_deal" />
           <NavigationProperty Name="user" Relationship="Self.FK_logs_user" FromRole="logs" ToRole="user" />
+          <Property Name="reason" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="stage_deal">
           <Key>
@@ -124,7 +159,8 @@
           </Key>
           <Property Name="id_deal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="name_stage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="name_stade_ru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="logs" Relationship="Self.FK_logs_stage_deal" FromRole="stage_deal" ToRole="logs" />
+          <NavigationProperty Name="logs1" Relationship="Self.FK_logs_stage_deal1" FromRole="stage_deal" ToRole="logs" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -162,6 +198,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_logs_stage_deal">
+          <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
+          <End Role="logs" Type="Self.logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stage_deal">
+              <PropertyRef Name="id_deal" />
+            </Principal>
+            <Dependent Role="logs">
+              <PropertyRef Name="initial_stage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_logs_stage_deal1">
+          <End Role="stage_deal" Type="Self.stage_deal" Multiplicity="1" />
+          <End Role="logs" Type="Self.logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stage_deal">
+              <PropertyRef Name="id_deal" />
+            </Principal>
+            <Dependent Role="logs">
+              <PropertyRef Name="final_stage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_logs_user">
           <End Role="user" Type="Self.user" Multiplicity="1" />
           <End Role="logs" Type="Self.logs" Multiplicity="*" />
@@ -174,7 +234,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="course_projectEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="course_projectEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="access" EntityType="Self.access" />
           <EntitySet Name="logs" EntityType="Self.logs" />
           <EntitySet Name="stage_deal" EntityType="Self.stage_deal" />
@@ -183,6 +243,14 @@
           <AssociationSet Name="FK_user_access" Association="Self.FK_user_access">
             <End Role="access" EntitySet="access" />
             <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_logs_stage_deal" Association="Self.FK_logs_stage_deal">
+            <End Role="stage_deal" EntitySet="stage_deal" />
+            <End Role="logs" EntitySet="logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_logs_stage_deal1" Association="Self.FK_logs_stage_deal1">
+            <End Role="stage_deal" EntitySet="stage_deal" />
+            <End Role="logs" EntitySet="logs" />
           </AssociationSet>
           <AssociationSet Name="FK_logs_user" Association="Self.FK_logs_user">
             <End Role="user" EntitySet="user" />
@@ -194,7 +262,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище course_projectModelContainer" CdmEntityContainer="course_projectEntities3">
+        <EntityContainerMapping StorageEntityContainer="Хранилище course_projectModelContainer" CdmEntityContainer="course_projectEntities4">
           <EntitySetMapping Name="access">
             <EntityTypeMapping TypeName="course_projectModel.access">
               <MappingFragment StoreEntitySet="access">
@@ -206,6 +274,7 @@
           <EntitySetMapping Name="logs">
             <EntityTypeMapping TypeName="course_projectModel.logs">
               <MappingFragment StoreEntitySet="logs">
+                <ScalarProperty Name="reason" ColumnName="reason" />
                 <ScalarProperty Name="logs_id" ColumnName="logs_id" />
                 <ScalarProperty Name="id_panel" ColumnName="id_panel" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
@@ -221,7 +290,6 @@
               <MappingFragment StoreEntitySet="stage_deal">
                 <ScalarProperty Name="id_deal" ColumnName="id_deal" />
                 <ScalarProperty Name="name_stage" ColumnName="name_stage" />
-                <ScalarProperty Name="name_stade_ru" ColumnName="name_stade_ru" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
