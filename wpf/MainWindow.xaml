@@ -10,10 +10,10 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100*"/>
-            <RowDefinition Height="140*"/>
             <RowDefinition Height="85*"/>
             <RowDefinition Height="85*"/>
-            <RowDefinition Height="110*"/>
+            <RowDefinition Height="85*"/>
+            <RowDefinition Height="85*"/>
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Background="#424242">
@@ -21,8 +21,6 @@
             <TextBox x:Name="text_panel" FontSize="15" Width="300" Height="37"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Background="#5B5B5B">
-            <TextBox x:Name="warehouse_text" FontSize="20" TextWrapping="Wrap" Margin="10, 10, 10, 0" Height="30" />
-            <CheckBox x:Name="terminal_block" FontSize="16" Content="Клемная колодка" Margin="20, 10, 210, 0" Width="180"/>
             <Button x:Name="warehouse" Content="Принята на склад" FontSize="20" Margin="10, 5, 10, 0" Height="50" Click="warehouse_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Background="#7D7D7D">
@@ -32,12 +30,12 @@
             <Button x:Name="check" FontSize="20" Content="В проверку" Margin="10, 10, 10, 0" Height="50" Click="check_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="4" Background="#A5A5A5">
-            <TextBox x:Name="sending_text" FontSize="20" TextWrapping="Wrap"  Margin="10, 10, 10, 0" Height="30"/>
             <Button x:Name="sending" FontSize="20" Content="Готово к отправке" Margin="10, 5, 10, 0" Height="50" Click="sending_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="5" Background="#CFCFCF">
             <Button x:Name="log" FontSize="20" Content="Логи" Margin="10, 10, 10, 0" Height="40" Click="log_Click"/>
-            <Label Content="Version 1.1" Margin="0, 20, 0, 0"/>
+            <Label Content="Version 1.1" Margin="0, 25, 255, 0" Width="124"/>
+            <Button x:Name="out"  Content="Log out"  Margin="305, -30, 0, 0" Width="74" Height="26" Click="out_Click"/>
         </StackPanel>
     </Grid>
 

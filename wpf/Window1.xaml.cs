@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,7 +28,7 @@ namespace course_project
         {
             InitializeComponent();
             list = db.logs.ToList();
-            logsG.ItemsSource = list;
+            logsG.ItemsSource = db.logs.ToList();
             find_name.ItemsSource = db.user.Select(x => x.firstname).ToList();
             stage.ItemsSource = db.stage_deal.Select(x => x.name_stage).ToList();
             stage_fin.ItemsSource = db.stage_deal.Select(x => x.name_stage).ToList();
@@ -42,50 +43,97 @@ namespace course_project
 
         private void show_Click(object sender, RoutedEventArgs e)
         {
+            var list2 = db.logs.ToList();
+            string value = stage.Text;
+            var id_arr = db.stage_deal.FirstOrDefault(x => x.name_stage == value);
+
+            if (id.Text.Trim() != null)
+            {
+                var f = list2.Where(x => x.id_panel.Contains(id.Text)).ToList();
+                list2 = f;
+            }
+            
+            if (id_arr != null)
+            {
+                var f = list2.Where(x => x.initial_stage == id_arr.id_deal).ToList();
+                list2 = f;
+            }
+
+            string value1 = stage_fin.Text;
+
+            var id_arr1 = db.stage_deal.FirstOrDefault(x => x.name_stage == value1);
+           
+            if (id_arr1 != null)
+            {
+                var f = list2.Where(x => x.final_stage == id_arr1.id_deal).ToList();
+                list2 = f;
+            }
+
+            string value2 = find_name.Text;
+            var id_arr2 = db.user.FirstOrDefault(x => x.firstname == value2);
+            if (id_arr2 != null)
+            {
+                var f = list2.Where(x => x.user_id == id_arr2.id_user).ToList();
+                list2 = f;
+
+            }
+
+            if (error.IsChecked == true)
+            {
+                var f = list2.Where(x => x.result == false).ToList();
+                list2 = f;
+            }
+
+            if (successful.IsChecked == true)
+            {
+                var f = list2.Where(x => x.result == true).ToList();
+                list2 = f;
+            }
+
+
+
+
+            if (earlier.IsChecked == true)
+            {
+                var f = list2.Where(x => x.date.Date > Convert.ToDateTime(date.Text).Date).ToList();
+                list2 = f;
+            }
+
+            if (matches.IsChecked == true)
+            {
+                var f = list2.Where(x => x.date.Date == Convert.ToDateTime(date.Text).Date).ToList();
+                list2 = f;
+            }
+
+            if (later.IsChecked == true)
+            {
+                var f = list2.Where(x => x.date.Date < Convert.ToDateTime(date.Text).Date).ToList();
+                list2 = f;
+            }
+            logsG.ItemsSource = list2;
+        }
+
+        private void rest_Click(object sender, RoutedEventArgs e)
+        {
+            find_name.Text = "";
+            stage_fin.Text = "";
+            stage.Text = "";
+            
             logsG.ItemsSource = list;
+            error.IsChecked = false;
+            successful.IsChecked = false;
+            later.IsChecked = false;
+            matches.IsChecked = false;
+            earlier.IsChecked = false;
+            date.Text = "";
+            id.Text = "";
         }
 
-        private void find_name_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DatePicker_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            ApplyFilters();
+            e.Handled = true;
         }
 
-        private void stage_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ApplyFilters();
-        }
 
-        private void stage_fin_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ApplyFilters();
-        }
-
-        private void ApplyFilters()
-        {
-            var filteredList = list;
-
-            string nameValue = find_name.Text;
-            var nameIdArr = db.user.FirstOrDefault(x => x.firstname == nameValue);
-            if (nameIdArr != null)
-            {
-                filteredList = filteredList.Where(x => x.user_id == nameIdArr.id_user).ToList();
-            }
-
-            string stageValue = stage.Text;
-            var stageIdArr = db.stage_deal.FirstOrDefault(x => x.id_deal == stageValue);
-            if (stageIdArr != null)
-            {
-                filteredList = filteredList.Where(x => x.initial_stage == stageIdArr.id_deal).ToList();
-            }
-
-            string stageFinValue = stage_fin.Text;
-            var stageFinIdArr = db.stage_deal.FirstOrDefault(x => x.id_deal == stageFinValue);
-            if (stageFinIdArr != null)
-            {
-                filteredList = filteredList.Where(x => x.final_stage == stageFinIdArr.id_deal).ToList();
-            }
-
-            logsG.ItemsSource = filteredList;
-        }
     }
 }

@@ -144,5 +144,13 @@ namespace course_project
             window.Show();
             this.Close();
         }
+
+        private void out_Click(object sender, RoutedEventArgs e)
+        {
+            file_write_and_read.file_write(" ");
+            Window2 window = new Window2();
+            window.Show();
+            this.Close();
+        }
     }
 }

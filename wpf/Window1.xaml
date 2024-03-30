@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:course_project"
         mc:Ignorable="d"
-        Title="Логи" Height="475" Width="845" MinHeight="475"  MinWidth="845"
+        Title="Логи" Height="485" Width="845" MinHeight="485"  MinWidth="845"
         Topmost="True">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="375*"/>
+            <RowDefinition Height="385*"/>
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
 
@@ -30,20 +30,22 @@
         </DataGrid>
 
         <Button x:Name="comeback" FontSize="40" Content="Назад" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.Row="1" Click="comeback_Click"  />
-        <Label Grid.Column="1" Content="Поиск по сотруднику" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <ComboBox Grid.Column="1" x:Name="find_name" HorizontalAlignment="Left" Margin="165,14,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="find_name_SelectionChanged"/>
-        <RadioButton Grid.Column="1" x:Name="earlier" GroupName="first" Content="Раньше даты" HorizontalAlignment="Left" Margin="165,74,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
-        <RadioButton Grid.Column="1" x:Name="matches" GroupName="first" Content="Совпадает" HorizontalAlignment="Left" Margin="165,101,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
-        <RadioButton Grid.Column="1" x:Name="later" GroupName="first" Content="Позднее" HorizontalAlignment="Left" Margin="165,128,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
-        <DatePicker Grid.Column="1"  x:Name="date" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Height="42" Width="149"/>
-        <Label Grid.Column="1" Content="Поиск по начальной стадии" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top"/>
-        <ComboBox Grid.Column="1" x:Name="stage" HorizontalAlignment="Left" Margin="179,193,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="stage_SelectionChanged"/>
-        <Button Grid.Column="1" x:Name="show" Content="Показать" HorizontalAlignment="Center" Margin="0,265,0,0" VerticalAlignment="Top" Width="297" Height="28" Click="show_Click"/>
-        <Button Grid.Column="1" x:Name="rest" Content="Сбросить" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" Width="297" Height="28"/>
-        <Label Grid.Column="1" Content="Поиск по конечной стадии" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top"/>
-        <ComboBox Grid.Column="1" x:Name="stage_fin" HorizontalAlignment="Left" Margin="179,226,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="stage_fin_SelectionChanged"/>
-        <RadioButton Grid.Column="1" x:Name="error" GroupName="second" Content="Ошибка" HorizontalAlignment="Left" Margin="165,161,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
-        <RadioButton Grid.Column="1" x:Name="successful" GroupName="second" Content="Успех" HorizontalAlignment="Left" Margin="17,161,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
+        <Label Grid.Column="1" Content="Поиск по сотруднику" HorizontalAlignment="Left" Margin="9,50,0,0" VerticalAlignment="Top"/>
+        <ComboBox Grid.Column="1" x:Name="find_name" HorizontalAlignment="Left" Margin="164,54,0,0" VerticalAlignment="Top" Width="120" />
+        <RadioButton Grid.Column="1" x:Name="earlier" GroupName="first" Content="Раньше даты" HorizontalAlignment="Left" Margin="164,94,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
+        <RadioButton Grid.Column="1" x:Name="matches" GroupName="first" Content="Совпадает" HorizontalAlignment="Left" Margin="164,121,0,0" VerticalAlignment="Top" Height="20" Width="120" />
+        <RadioButton Grid.Column="1" x:Name="later" GroupName="first" Content="Позднее" HorizontalAlignment="Left" Margin="164,148,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
+        <DatePicker Grid.Column="1" PreviewKeyDown="DatePicker_PreviewKeyDown" x:Name="date" HorizontalAlignment="Left" Margin="9,107,0,0" VerticalAlignment="Top" Height="42" Width="149"/>
+        <Label Grid.Column="1" Content="Поиск по начальной стадии" HorizontalAlignment="Left" Margin="9,211,0,0" VerticalAlignment="Top"/>
+        <ComboBox Grid.Column="1" x:Name="stage" HorizontalAlignment="Left" Margin="178,213,0,0" VerticalAlignment="Top" Width="120" />
+        <Button Grid.Column="1" x:Name="show" Content="Показать" HorizontalAlignment="Left" Margin="9,285,0,0" VerticalAlignment="Top" Width="297" Height="28" Click="show_Click"/>
+        <Button Grid.Column="1" x:Name="rest" Content="Сбросить" HorizontalAlignment="Left" Margin="9,320,0,0" VerticalAlignment="Top" Width="297" Height="28" Click="rest_Click"/>
+        <Label Grid.Column="1" Content="Поиск по конечной стадии" HorizontalAlignment="Left" Margin="9,244,0,0" VerticalAlignment="Top"/>
+        <ComboBox Grid.Column="1" x:Name="stage_fin" HorizontalAlignment="Left" Margin="178,246,0,0" VerticalAlignment="Top" Width="120" />
+        <RadioButton Grid.Column="1" x:Name="error" GroupName="second" Content="Ошибка" HorizontalAlignment="Left" Margin="164,181,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
+        <RadioButton Grid.Column="1" x:Name="successful" GroupName="second" Content="Успех" HorizontalAlignment="Left" Margin="16,181,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
+        <Label Grid.Column="1" Content="Поиск по ID панели" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" x:Name="id" HorizontalAlignment="Left" Margin="164,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
