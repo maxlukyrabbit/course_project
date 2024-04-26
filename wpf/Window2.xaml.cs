@@ -35,8 +35,9 @@ namespace course_project
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var list = db.user.Where(x => x.token == tokenT.Text);
-            int? level = 1;
-            
+            int? level = 0;
+
+
 
             if (list != null)
             {
@@ -45,7 +46,7 @@ namespace course_project
                     level = item.access_level;
                     id_user = item.id_user;
                 }
-                
+
                 if (level > 1)
                 {
                     file_write_and_read.file_write(AESEncryption.Encrypt(tokenT.Text, "sAL4-AVlWoCGELM-"));
@@ -54,11 +55,15 @@ namespace course_project
                     window.Show();
                     this.Close();
                 }
-                else
+                else if(level == 1)
                 {
                     MessageBox.Show($"Нет прав!");
                 }
-                
+                else
+                {
+                    MessageBox.Show($"Неверный токен!");
+                }
+
             }
         }
 

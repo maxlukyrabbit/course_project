@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:course_project"
         mc:Ignorable="d"
         Title="Вход" Height="343" Width="290" ResizeMode="NoResize">
-    <Grid>
-        <TextBox x:Name="tokenT" HorizontalAlignment="Center" FontSize="20" Margin="0,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Height="100"/>
-        <TextBlock HorizontalAlignment="Left" Margin="101,26,0,0" TextWrapping="Wrap" Text="Token" FontSize="25" VerticalAlignment="Top"/>
-        <Button Content="Вход" HorizontalAlignment="Center" FontSize="35" VerticalAlignment="Top" Height="97" Width="270" Margin="0,169,0,0" Click="Button_Click"/>
+    <Grid Background="Gray">
+        <TextBox x:Name="tokenT" HorizontalAlignment="Center" Background="#b3b3b3" FontSize="20" Margin="0,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Height="100"/>
+        <TextBlock HorizontalAlignment="Left" Margin="101,26,0,0" TextWrapping="Wrap" Text="Токен" FontSize="25" VerticalAlignment="Top"/>
+        <Button Content="Вход" HorizontalAlignment="Center" Background="#06b8af" FontSize="35"  VerticalAlignment="Top" Height="97" Width="270" Margin="0,169,0,0" Click="Button_Click"/>
 
     </Grid>
 </Window>

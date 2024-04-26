@@ -18,24 +18,24 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Background="#424242">
             <Label Content="Номер панели" FontSize="20"  Height="40" Width="146" Foreground="White"   />
-            <TextBox x:Name="text_panel" FontSize="15" Width="300" Height="37"/>
+            <TextBox x:Name="text_panel" FontSize="15" Width="300" Height="37" Background="Gray"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Background="#5B5B5B">
-            <Button x:Name="warehouse" Content="Принята на склад" FontSize="20" Margin="10, 5, 10, 0" Height="50" Click="warehouse_Click"/>
+            <Button x:Name="warehouse" Background="#06b8af" Content="Принята на склад" FontSize="20" Margin="10, 5, 10, 0" Height="50" Click="warehouse_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Background="#7D7D7D">
-            <Button FontSize="20" x:Name="fix" Content="В ремонте" Margin="10, 10, 10, 0" Height="50" Click="fix_Click"/>
+            <Button FontSize="20" x:Name="fix" Background="#06b8af" Content="В ремонте" Margin="10, 10, 10, 0" Height="50" Click="fix_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Background="#979AAA">
-            <Button x:Name="check" FontSize="20" Content="В проверку" Margin="10, 10, 10, 0" Height="50" Click="check_Click"/>
+            <Button x:Name="check" FontSize="20" Background="#06b8af" Content="В проверку" Margin="10, 10, 10, 0" Height="50" Click="check_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="4" Background="#A5A5A5">
-            <Button x:Name="sending" FontSize="20" Content="Готово к отправке" Margin="10, 5, 10, 0" Height="50" Click="sending_Click"/>
+            <Button x:Name="sending" FontSize="20" Background="#06b8af" Content="Готово к отправке" Margin="10, 5, 10, 0" Height="50" Click="sending_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="5" Background="#CFCFCF">
-            <Button x:Name="log" FontSize="20" Content="Логи" Margin="10, 10, 10, 0" Height="40" Click="log_Click"/>
+            <Button x:Name="log" FontSize="20" Content="Логи" Background="#06b8af" Margin="10, 10, 10, 0" Height="40" Click="log_Click"/>
             <Label Content="Version 1.1" Margin="0, 25, 255, 0" Width="124"/>
-            <Button x:Name="out"  Content="Log out"  Margin="305, -30, 0, 0" Width="74" Height="26" Click="out_Click"/>
+            <Button x:Name="out"  Content="Log out"  Margin="305, -30, 0, 0" Width="74" Height="26" Background="#06b8af" Click="out_Click"/>
         </StackPanel>
     </Grid>
 
