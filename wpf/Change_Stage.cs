@@ -28,20 +28,32 @@ public static class DealManager
                 // Преобразование ответа в строку
                 string responseBody = response.Content.ReadAsStringAsync().Result;
                 result = "Успех";
-                logs_save.save(Window2.id_user, MainWindow.id_panel, stage, stageId, true, "");
+                if(Window2.flag == false)
+                {
+                    logs_save.save(Window2.id_user, MainWindow.id_panel, stage, stageId, true, "");
+                }
+                
 
 
             }
             else
             {
                 result = "Запрос отправлен, но сообщеня об успехе нет";
-                logs_save.save(Window2.id_user, MainWindow.id_panel, stage, stageId, false, result);
+                if (Window2.flag == false)
+                {
+                    logs_save.save(Window2.id_user, MainWindow.id_panel, stage, stageId, false, result);
+                }
+                
             }
         }
         catch
         {
             result = "Ошибка запроса";
-            logs_save.save(Window2.id_user, MainWindow.id_panel, stage, stageId, false, result);
+            if (Window2.flag == false)
+            {
+                logs_save.save(Window2.id_user, MainWindow.id_panel, stage, stageId, false, result);
+            }
+            
         }
 
         return result;
@@ -60,7 +72,11 @@ public static class DealManager
             else
             {
                 result = $"Панель находится в неподходящей стадии:{stage}";
-                logs_save.save(Window2.id_user, MainWindow.id_panel, stage, "C25:EXECUTING", false, "Панель находится в неподходящей стадии");
+                if (Window2.flag == false)
+                {
+                    logs_save.save(Window2.id_user, MainWindow.id_panel, stage, "C25:EXECUTING", false, "Панель находится в неподходящей стадии");
+                }
+                
             }
         }
         else
@@ -83,7 +99,11 @@ public static class DealManager
             else
             {
                 result = $"Панель находится в неподходящей стадии:{stage}";
-                logs_save.save(Window2.id_user, MainWindow.id_panel, stage, "C25:2", false, "Панель находится в неподходящей стадии");
+                if (Window2.flag == false)
+                {
+                    logs_save.save(Window2.id_user, MainWindow.id_panel, stage, "C25:2", false, "Панель находится в неподходящей стадии");
+                }
+                
             }
         }
         else
@@ -106,7 +126,11 @@ public static class DealManager
             else
             {
                 result = $"Панель находится в неподходящей стадии:{stage}";
-                logs_save.save(Window2.id_user, MainWindow.id_panel, stage, "C25:7", false, "Панель находится в неподходящей стадии");
+                if (Window2.flag == false)
+                {
+                    logs_save.save(Window2.id_user, MainWindow.id_panel, stage, "C25:7", false, "Панель находится в неподходящей стадии");
+                }
+                
             }
         }
         else
@@ -127,7 +151,11 @@ public static class DealManager
         else
         {
             result = $"Панель находится в неподходящей стадии:{stage}";
-            logs_save.save(Window2.id_user, MainWindow.id_panel, stage, "C25:FINAL_INVOICE", false, "Панель находится в неподходящей стадии");
+            if (Window2.flag == false)
+            {
+                logs_save.save(Window2.id_user, MainWindow.id_panel, stage, "C25:FINAL_INVOICE", false, "Панель находится в неподходящей стадии");
+            }
+            
         }
         return result;
     }

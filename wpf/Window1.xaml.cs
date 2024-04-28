@@ -27,6 +27,10 @@ namespace course_project
         public Window1()
         {
             InitializeComponent();
+            if (Window2.id_level == 4)
+            {
+                del.Visibility = Visibility.Visible;
+            }
             list = db.logs.ToList();
             logsG.ItemsSource = db.logs.ToList();
             find_name.ItemsSource = db.user.Select(x => x.firstname).ToList();
@@ -36,81 +40,102 @@ namespace course_project
 
         private void comeback_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow window = new MainWindow();
-            window.Show();
-            this.Close();
+            if(Window2.id_level == 4)
+            {
+                Window2 window = new Window2();
+                window.Show();
+                this.Close();
+            }
+            else
+            {
+                MainWindow window = new MainWindow();
+                window.Show();
+                this.Close();
+            }
+            
         }
 
         private void show_Click(object sender, RoutedEventArgs e)
         {
-            var list2 = db.logs.ToList();
-            string value = stage.Text;
-            var id_arr = db.stage_deal.FirstOrDefault(x => x.name_stage == value);
-
-            if (id.Text.Trim() != null)
+            try
             {
-                var f = list2.Where(x => x.id_panel.Contains(id.Text)).ToList();
-                list2 = f;
+
+
+                var list2 = db.logs.ToList();
+                string value = stage.Text;
+                var id_arr = db.stage_deal.FirstOrDefault(x => x.name_stage == value);
+
+                if (id.Text.Trim() != null)
+                {
+                    var f = list2.Where(x => x.id_panel.Contains(id.Text)).ToList();
+                    list2 = f;
+                }
+
+                if (id_arr != null)
+                {
+                    var f = list2.Where(x => x.initial_stage == id_arr.id_deal).ToList();
+                    list2 = f;
+                }
+
+                string value1 = stage_fin.Text;
+
+                var id_arr1 = db.stage_deal.FirstOrDefault(x => x.name_stage == value1);
+
+                if (id_arr1 != null)
+                {
+                    var f = list2.Where(x => x.final_stage == id_arr1.id_deal).ToList();
+                    list2 = f;
+                }
+
+                string value2 = find_name.Text;
+                var id_arr2 = db.user.FirstOrDefault(x => x.firstname == value2);
+                if (id_arr2 != null)
+                {
+                    var f = list2.Where(x => x.user_id == id_arr2.id_user).ToList();
+                    list2 = f;
+
+                }
+
+                if (error.IsChecked == true)
+                {
+                    var f = list2.Where(x => x.result == false).ToList();
+                    list2 = f;
+                }
+
+                if (successful.IsChecked == true)
+                {
+                    var f = list2.Where(x => x.result == true).ToList();
+                    list2 = f;
+                }
+
+
+
+
+                if (earlier.IsChecked == true)
+                {
+                    var f = list2.Where(x => x.date.Date > Convert.ToDateTime(date.Text).Date).ToList();
+                    list2 = f;
+                }
+
+                if (matches.IsChecked == true)
+                {
+                    var f = list2.Where(x => x.date.Date == Convert.ToDateTime(date.Text).Date).ToList();
+                    list2 = f;
+                }
+
+                if (later.IsChecked == true)
+                {
+                    var f = list2.Where(x => x.date.Date < Convert.ToDateTime(date.Text).Date).ToList();
+                    list2 = f;
+                }
+                list = list2;
+                logsG.ItemsSource = list2;
+                
             }
-            
-            if (id_arr != null)
+            catch
             {
-                var f = list2.Where(x => x.initial_stage == id_arr.id_deal).ToList();
-                list2 = f;
+                MessageBox.Show("Нет связи с БД");
             }
-
-            string value1 = stage_fin.Text;
-
-            var id_arr1 = db.stage_deal.FirstOrDefault(x => x.name_stage == value1);
-           
-            if (id_arr1 != null)
-            {
-                var f = list2.Where(x => x.final_stage == id_arr1.id_deal).ToList();
-                list2 = f;
-            }
-
-            string value2 = find_name.Text;
-            var id_arr2 = db.user.FirstOrDefault(x => x.firstname == value2);
-            if (id_arr2 != null)
-            {
-                var f = list2.Where(x => x.user_id == id_arr2.id_user).ToList();
-                list2 = f;
-
-            }
-
-            if (error.IsChecked == true)
-            {
-                var f = list2.Where(x => x.result == false).ToList();
-                list2 = f;
-            }
-
-            if (successful.IsChecked == true)
-            {
-                var f = list2.Where(x => x.result == true).ToList();
-                list2 = f;
-            }
-
-
-
-
-            if (earlier.IsChecked == true)
-            {
-                var f = list2.Where(x => x.date.Date > Convert.ToDateTime(date.Text).Date).ToList();
-                list2 = f;
-            }
-
-            if (matches.IsChecked == true)
-            {
-                var f = list2.Where(x => x.date.Date == Convert.ToDateTime(date.Text).Date).ToList();
-                list2 = f;
-            }
-
-            if (later.IsChecked == true)
-            {
-                var f = list2.Where(x => x.date.Date < Convert.ToDateTime(date.Text).Date).ToList();
-                list2 = f;
-            }
-            logsG.ItemsSource = list2;
         }
 
         private void rest_Click(object sender, RoutedEventArgs e)
@@ -134,6 +159,27 @@ namespace course_project
             e.Handled = true;
         }
 
-
+        private void del_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var del = logsG.SelectedItem as logs;
+                if (del != null)
+                {
+                    db.logs.Remove(del);
+                    MessageBox.Show("Успех");
+                    logsG.ItemsSource = list;
+                }
+                else
+                {
+                    MessageBox.Show("Выберите строку в таблице");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Нет связи с БД");
+            }
+            
+        }
     }
 }

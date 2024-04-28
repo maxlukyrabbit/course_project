@@ -47,6 +47,7 @@
         <Label Grid.Column="1" Content="Поиск по ID панели" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top"/>
         <TextBox Background="#b3b3b3" Grid.Column="1" x:Name="id" HorizontalAlignment="Left" Margin="164,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Grid.Column="1" Content="Статус:" HorizontalAlignment="Left" Margin="16,165,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="1" Content="Удалить запись" x:Name="del" FontSize="40" Visibility="Hidden" Background="#06b8af"  Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="del_Click"/>
 
     </Grid>
 </Window>

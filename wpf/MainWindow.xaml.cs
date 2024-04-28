@@ -24,15 +24,22 @@ namespace course_project
         public MainWindow()
         {
             InitializeComponent();
+            if (Window2.flag == true)
+            {
+                log.IsEnabled = false;
+            }
         }
 
         private void fix_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if(text_panel.Text == "")
+                string result1 = ID_verification.CheckString(text_panel.Text);
+
+
+                if(result1 != "Успех")
                 {
-                    MessageBox.Show("Введите номер панели");
+                    MessageBox.Show(result1);
                 }
 
                 else
@@ -53,14 +60,17 @@ namespace course_project
 
         private void warehouse_Click(object sender, RoutedEventArgs e)
         {
-            
+
 
 
             try
             {
-                if (text_panel.Text == "")
+                string result1 = ID_verification.CheckString(text_panel.Text);
+
+
+                if (result1 != "Успех")
                 {
-                    MessageBox.Show("Введите номер панели");
+                    MessageBox.Show(result1);
                 }
 
                 else
@@ -82,13 +92,16 @@ namespace course_project
 
         private void check_Click(object sender, RoutedEventArgs e)
         {
-            
+
 
             try
             {
-                if (text_panel.Text == "")
+                string result1 = ID_verification.CheckString(text_panel.Text);
+
+
+                if (result1 != "Успех")
                 {
-                    MessageBox.Show("Введите номер панели");
+                    MessageBox.Show(result1);
                 }
 
                 else
@@ -110,14 +123,17 @@ namespace course_project
 
         private void sending_Click(object sender, RoutedEventArgs e)
         {
-            
+
 
 
             try
             {
-                if (text_panel.Text == "")
+                string result1 = ID_verification.CheckString(text_panel.Text);
+
+
+                if (result1 != "Успех")
                 {
-                    MessageBox.Show("Введите номер панели");
+                    MessageBox.Show(result1);
                 }
 
                 else
