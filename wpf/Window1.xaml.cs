@@ -143,8 +143,8 @@ namespace course_project
             find_name.Text = "";
             stage_fin.Text = "";
             stage.Text = "";
-            
-            logsG.ItemsSource = list;
+
+            logsG.ItemsSource = db.logs.ToList();
             error.IsChecked = false;
             successful.IsChecked = false;
             later.IsChecked = false;
@@ -163,23 +163,45 @@ namespace course_project
         {
             try
             {
-                var del = logsG.SelectedItem as logs;
+                var del = (logs)logsG.SelectedItem;
                 if (del != null)
                 {
-                    db.logs.Remove(del);
+                   
+                    var f = db.logs.FirstOrDefault(x => x.logs_id == del.logs_id);
+                    db.logs.Remove(f);
+                    db.SaveChanges();
                     MessageBox.Show("Успех");
-                    logsG.ItemsSource = list;
+                   
+
+                    find_name.Text = "";
+                    stage_fin.Text = "";
+                    stage.Text = "";
+
+                    
+                    error.IsChecked = false;
+                    successful.IsChecked = false;
+                    later.IsChecked = false;
+                    matches.IsChecked = false;
+                    earlier.IsChecked = false;
+                    date.Text = "";
+                    id.Text = "";
+                    logsG.ItemsSource = db.logs.ToList();
                 }
                 else
                 {
                     MessageBox.Show("Выберите строку в таблице");
                 }
+                
             }
             catch
             {
                 MessageBox.Show("Нет связи с БД");
             }
-            
         }
+
+
+
+
+
     }
 }

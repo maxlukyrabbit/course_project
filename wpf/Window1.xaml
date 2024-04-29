@@ -17,7 +17,7 @@
             <ColumnDefinition Width="250*"/>
             <ColumnDefinition Width="150*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Row="0" x:Name="logsG" AutoGenerateColumns="False" Background="#b3b3b3">
+        <DataGrid Grid.Row="0" x:Name="logsG" AutoGenerateColumns="False" Background="#b3b3b3" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер панели" Binding="{Binding id_panel}"/>
                 <DataGridTextColumn Header="Пользователь" Binding="{Binding user.firstname}"/>
